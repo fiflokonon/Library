@@ -10,7 +10,7 @@ endpoints:
       - POST
     uri: 'api/student/{id}/document/create'
     metadata:
-      title: ''
+      title: 'Create a document'
       description: ''
       authenticated: false
       custom: []
@@ -22,11 +22,32 @@ endpoints:
         name: id
         description: 'The ID of the student.'
         required: true
-        example: eum
+        example: ut
         type: string
         custom: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      document.field:
+        name: document.field
+        description: ''
+        required: true
+        example: adipisci
+        type: string
+        custom: []
+      document.speciality_id:
+        name: document.speciality_id
+        description: ''
+        required: true
+        example: 6
+        type: integer
+        custom: []
+      document.year:
+        name: document.year
+        description: ''
+        required: true
+        example: 18
+        type: integer
+        custom: []
     responses: []
     responseFields: []
   -
@@ -34,7 +55,7 @@ endpoints:
       - POST
     uri: 'api/document/{id}/file'
     metadata:
-      title: ''
+      title: 'Add Document file'
       description: ''
       authenticated: false
       custom: []
@@ -46,11 +67,18 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 18
+        example: 3
         type: integer
         custom: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      document.pathDoc:
+        name: document.pathDoc
+        description: ''
+        required: true
+        example: null
+        type: file
+        custom: []
     responses: []
     responseFields: []
   -
@@ -58,7 +86,7 @@ endpoints:
       - DELETE
     uri: 'api/document/{id}/delete'
     metadata:
-      title: ''
+      title: 'Delete a document'
       description: ''
       authenticated: false
       custom: []
@@ -70,7 +98,7 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 14
+        example: 6
         type: integer
         custom: []
     queryParameters: []
@@ -82,7 +110,7 @@ endpoints:
       - PUT
     uri: 'api/document/{id}/supress'
     metadata:
-      title: ''
+      title: 'Change document status(active or inactive)'
       description: ''
       authenticated: false
       custom: []
@@ -94,7 +122,7 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 11
+        example: 4
         type: integer
         custom: []
     queryParameters: []
@@ -106,7 +134,7 @@ endpoints:
       - PUT
     uri: 'api/document/{id}/update'
     metadata:
-      title: ''
+      title: 'Edit or update document'
       description: ''
       authenticated: false
       custom: []
@@ -118,11 +146,18 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 11
+        example: 4
         type: integer
         custom: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      document.field:
+        name: document.field
+        description: ''
+        required: true
+        example: occaecati
+        type: string
+        custom: []
     responses: []
     responseFields: []
   -
@@ -130,7 +165,7 @@ endpoints:
       - GET
     uri: api/documents
     metadata:
-      title: ''
+      title: 'Get all Documents'
       description: ''
       authenticated: false
       custom: []
@@ -142,15 +177,250 @@ endpoints:
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 500
+        content: |-
+          {
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
+              "trace": [
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\Cors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 103,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 50,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Command/Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 1015,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '51'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -158,7 +428,7 @@ endpoints:
       - GET
     uri: 'api/document/{id}'
     metadata:
-      title: ''
+      title: 'Get a doc by his ID'
       description: ''
       authenticated: false
       custom: []
@@ -170,22 +440,257 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 13
+        example: 9
         type: integer
         custom: []
     queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 500
+        content: |-
+          {
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
+              "trace": [
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\Cors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 103,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 50,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Command/Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 1015,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '50'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -193,7 +698,7 @@ endpoints:
       - GET
     uri: 'api/student/{id}/documents'
     metadata:
-      title: ''
+      title: 'Get a specific user''s document'
       description: ''
       authenticated: false
       custom: []
@@ -205,22 +710,257 @@ endpoints:
         name: id
         description: 'The ID of the student.'
         required: true
-        example: est
+        example: consequatur
         type: string
         custom: []
     queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 500
+        content: |-
+          {
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
+              "trace": [
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\Cors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 103,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 50,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Command/Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 1015,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '49'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -228,7 +968,7 @@ endpoints:
       - GET
     uri: api/documents/noactive
     metadata:
-      title: ''
+      title: 'Get all inactive Docs'
       description: ''
       authenticated: false
       custom: []
@@ -240,15 +980,250 @@ endpoints:
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 500
+        content: |-
+          {
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
+              "trace": [
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\Cors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 103,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 50,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Command/Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 1015,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '48'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -256,7 +1231,7 @@ endpoints:
       - GET
     uri: 'api/student/{id}/documents/noactive'
     metadata:
-      title: ''
+      title: 'Get a specific user''s inactive documents'
       description: ''
       authenticated: false
       custom: []
@@ -268,22 +1243,257 @@ endpoints:
         name: id
         description: 'The ID of the student.'
         required: true
-        example: dignissimos
+        example: sint
         type: string
         custom: []
     queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 500
+        content: |-
+          {
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
+              "trace": [
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\Cors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 103,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 50,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Command/Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 1015,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '47'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -291,7 +1501,7 @@ endpoints:
       - GET
     uri: api/documents/active
     metadata:
-      title: ''
+      title: 'Get all active documents'
       description: ''
       authenticated: false
       custom: []
@@ -303,15 +1513,250 @@ endpoints:
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 500
+        content: |-
+          {
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
+              "trace": [
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\Cors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 103,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 50,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Command/Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 1015,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '46'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -319,7 +1764,7 @@ endpoints:
       - GET
     uri: 'api/student/{id}/documents/active'
     metadata:
-      title: ''
+      title: 'Get a specific user''s active docs'
       description: ''
       authenticated: false
       custom: []
@@ -331,22 +1776,257 @@ endpoints:
         name: id
         description: 'The ID of the student.'
         required: true
-        example: similique
+        example: itaque
         type: string
         custom: []
     queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 500
+        content: |-
+          {
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
+              "trace": [
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "App\\Http\\Middleware\\Cors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 167,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 103,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 118,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 75,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 51,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 50,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 40,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 653,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 136,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Command/Command.php",
+                      "line": 298,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 121,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 1015,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 94,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/fifonsi/Documents/Laravel projects/Library/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '45'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -354,7 +2034,7 @@ endpoints:
       - GET
     uri: 'api/documents/search/{field}'
     metadata:
-      title: ''
+      title: 'Search Doc by field'
       description: ''
       authenticated: false
       custom: []
@@ -366,7 +2046,7 @@ endpoints:
         name: field
         description: ''
         required: true
-        example: suscipit
+        example: voluptas
         type: string
         custom: []
     queryParameters: []
@@ -376,331 +2056,16 @@ endpoints:
         status: 500
         content: |-
           {
-              "message": "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'theme' in 'where clause' (SQL: select * from `documents` where `field` like %suscipit% or `theme` like %suscipit%)",
-              "exception": "Illuminate\\Database\\QueryException",
-              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-              "line": 712,
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
               "trace": [
                   {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 672,
-                      "function": "runQueryCallback",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 376,
-                      "function": "run",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2414,
-                      "function": "select",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2402,
-                      "function": "runSelect",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2936,
-                      "function": "Illuminate\\Database\\Query\\{closure}",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2403,
-                      "function": "onceWithColumns",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
-                      "line": 625,
-                      "function": "get",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
-                      "line": 609,
-                      "function": "getModels",
-                      "class": "Illuminate\\Database\\Eloquent\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Controllers/DocumentController.php",
-                      "line": 54,
-                      "function": "get",
-                      "class": "Illuminate\\Database\\Eloquent\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
-                      "line": 54,
-                      "function": "getDocsByField",
-                      "class": "App\\Http\\Controllers\\DocumentController",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
-                      "line": 45,
-                      "function": "callAction",
-                      "class": "Illuminate\\Routing\\Controller",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 262,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 205,
-                      "function": "runController",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 721,
-                      "function": "run",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 128,
-                      "function": "Illuminate\\Routing\\{closure}",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
-                      "line": 50,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 127,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 103,
-                      "function": "handleRequest",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 55,
-                      "function": "handleRequestUsingNamedLimiter",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php",
-                      "line": 33,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 128,
-                      "function": "Laravel\\Sanctum\\Http\\Middleware\\{closure}",
-                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 103,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php",
-                      "line": 34,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 103,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 723,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 698,
-                      "function": "runRouteWithinStack",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 662,
-                      "function": "runRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 651,
-                      "function": "dispatchToRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 167,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 128,
-                      "function": "Illuminate\\Foundation\\Http\\{closure}",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
-                      "line": 31,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
-                      "line": 40,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
-                      "line": 27,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
-                      "line": 86,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/fruitcake/laravel-cors/src/HandleCors.php",
-                      "line": 52,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Fruitcake\\Cors\\HandleCors",
-                      "type": "->"
-                  },
-                  {
                       "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
-                      "line": 19,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
                       "type": "->"
                   },
                   {
@@ -932,10 +2297,6 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '44'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []
   -
@@ -943,7 +2304,7 @@ endpoints:
       - GET
     uri: 'api/documents/active/search/{field}'
     metadata:
-      title: ''
+      title: 'Get all active documents by field'
       description: ''
       authenticated: false
       custom: []
@@ -955,7 +2316,7 @@ endpoints:
         name: field
         description: ''
         required: true
-        example: corporis
+        example: odio
         type: string
         custom: []
     queryParameters: []
@@ -965,331 +2326,16 @@ endpoints:
         status: 500
         content: |-
           {
-              "message": "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'theme' in 'where clause' (SQL: select * from `documents` where `field` like %corporis% or `theme` like %corporis% and `status` = 1)",
-              "exception": "Illuminate\\Database\\QueryException",
-              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-              "line": 712,
+              "message": "Too few arguments to function Illuminate\\Http\\JsonResponse::header(), 1 passed in /home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php on line 20 and at least 2 expected",
+              "exception": "ArgumentCountError",
+              "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
+              "line": 75,
               "trace": [
                   {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 672,
-                      "function": "runQueryCallback",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 376,
-                      "function": "run",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2414,
-                      "function": "select",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2402,
-                      "function": "runSelect",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2936,
-                      "function": "Illuminate\\Database\\Query\\{closure}",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2403,
-                      "function": "onceWithColumns",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
-                      "line": 625,
-                      "function": "get",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
-                      "line": 609,
-                      "function": "getModels",
-                      "class": "Illuminate\\Database\\Eloquent\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Controllers/DocumentController.php",
-                      "line": 66,
-                      "function": "get",
-                      "class": "Illuminate\\Database\\Eloquent\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
-                      "line": 54,
-                      "function": "getActiveDocsByField",
-                      "class": "App\\Http\\Controllers\\DocumentController",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
-                      "line": 45,
-                      "function": "callAction",
-                      "class": "Illuminate\\Routing\\Controller",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 262,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 205,
-                      "function": "runController",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 721,
-                      "function": "run",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 128,
-                      "function": "Illuminate\\Routing\\{closure}",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
-                      "line": 50,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 127,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 103,
-                      "function": "handleRequest",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 55,
-                      "function": "handleRequestUsingNamedLimiter",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php",
-                      "line": 33,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 128,
-                      "function": "Laravel\\Sanctum\\Http\\Middleware\\{closure}",
-                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 103,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php",
-                      "line": 34,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 103,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 723,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 698,
-                      "function": "runRouteWithinStack",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 662,
-                      "function": "runRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 651,
-                      "function": "dispatchToRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 167,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 128,
-                      "function": "Illuminate\\Foundation\\Http\\{closure}",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
-                      "line": 31,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
-                      "line": 40,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
-                      "line": 27,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
-                      "line": 86,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/fruitcake/laravel-cors/src/HandleCors.php",
-                      "line": 52,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/home/fifonsi/Documents/Laravel projects/Library/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 167,
-                      "function": "handle",
-                      "class": "Fruitcake\\Cors\\HandleCors",
-                      "type": "->"
-                  },
-                  {
                       "file": "/home/fifonsi/Documents/Laravel projects/Library/app/Http/Middleware/Cors.php",
-                      "line": 19,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "line": 20,
+                      "function": "header",
+                      "class": "Illuminate\\Http\\JsonResponse",
                       "type": "->"
                   },
                   {
@@ -1521,9 +2567,5 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '43'
-          access-control-allow-origin: '*'
-          access-control-allow-methods: 'PUT,POST,DELETE,GET,OPTIONS'
         description: null
     responseFields: []

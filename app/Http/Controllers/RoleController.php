@@ -41,7 +41,7 @@ class RoleController extends Controller
      * @authentificated
      *
      * Role object and the role object details
-     * @queryParam role.name string required
+     * @bodyParam role.name string required
      */
     function createRole(Request $request)
     {
@@ -65,9 +65,7 @@ class RoleController extends Controller
      * @authentificated
      *
      * @urlParam id integer required The ID of the role.
-     * @queryParam role object required
-     * The role details
-     * @queryParam role.name string required
+     * @bodyParam role.name string required
      */
     function editRole(Request $request, $id)
     {

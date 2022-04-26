@@ -17,8 +17,8 @@ class UserController extends Controller
 
     /**
      * Login--Authentification
-     * @queryParam user.email  required
-     * @queryParam user.password string required
+     * @bodyParam user.email string  required
+     * @bodyParam user.password string required
      * 
      * @response{
      *      "user": {
@@ -57,12 +57,12 @@ class UserController extends Controller
     }
     /**
      * Signup --Create User/ Enrol User
-     * @queryparam user.lastName string required
-     * @queryParam user.firstName string required
-     * @queryParam user.sexe string required
-     * @queryParam user.email string required
-     * @queryParam user.tel string required
-     * @queryParam user.password string required
+     * @bodyparam user.lastName string required
+     * @bodyParam user.firstName string required
+     * @bodyParam user.sexe string required
+     * @bodyParam user.email string required
+     * @bodyParam user.tel string required
+     * @bodyParam user.password string required
      * 
      * 
     */
@@ -111,12 +111,12 @@ class UserController extends Controller
      * 
      * @urlparam id integer The ID of User
      * 
-     *@queryparam user.lastName string required
-     * @queryParam user.firstName string required
-     * @queryParam user.sexe string required
-     * @queryParam user.email string required
-     * @queryParam user.tel number required
-     * @queryParam user.password string required
+     *@bodyparam user.lastName string required
+     * @bodyParam user.firstName string required
+     * @bodyParam user.sexe string required
+     * @bodyParam user.email string required
+     * @bodyParam user.tel number required
+     * @bodyParam user.password string required
      */
     function editUser(Request $request, $id)
     {

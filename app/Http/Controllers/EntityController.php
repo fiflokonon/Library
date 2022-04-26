@@ -33,9 +33,7 @@ class EntityController extends Controller
      * Create an entity
      * @authentificated
      * 
-     * @query Entity object required
-     * Entity object details
-     * @queryParam entity.name string required
+     * @bodyParam entity.name string required
      */
     public function createEntity(Request $request)
     {
@@ -54,7 +52,8 @@ class EntityController extends Controller
         }
     }
     /**
-     * 
+     * Edit/Upate Entity
+     * @queryParam entity.name string required
      */
     public function editEntity(Request $request, $id)
     {
@@ -72,6 +71,11 @@ class EntityController extends Controller
             );
         }
     }
+
+    /**
+     * Delete an entity
+     * 
+     */
     public function deleteEntity($id)
     {
         $entity = Entity::find($id);

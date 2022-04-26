@@ -13,11 +13,18 @@ use App\Models\Suggestion;
 class SuggestionController extends Controller
 {
     //
+    /**
+     * Get Suggestions List
+     */
     function getAllSuggestions()
     {
         return Suggestion::all();
     }
-    
+    /**
+     * Create Suggestion
+     * @queryParam message string required
+     *
+    */
     function createSuggestion(Request $request, $id)
     {
         $suggest = new Suggestion;
@@ -36,6 +43,10 @@ class SuggestionController extends Controller
         }
     }
 
+    /**
+     * Delete Suggestion
+     * @urlParam user.id required
+     */
     function deleteSuggestion($id)
     {
         $suggest = Suggestion::find($id);

@@ -40,8 +40,8 @@ Route::get('speciality/{id}', [SpecialityController::class, 'getSpeciality']);
 Route::get('specialities', [SpecialityController::class , 'getAllSpecialities']);
 Route::get('entity/{id}/specialities', [SpecialityController::class, 'getSpecialitiesByEntity']);
 Route::post('addspec', [SpecialityController::class, 'createSpeciality']);
-Route::put('editspec/{id}', [SpecialityController::class, 'editSpeciality']);
-Route::delete('deletespec/{id}', [SpecialityController::class, 'deleteSpeciality']);
+Route::put('speciality/{id}/edit', [SpecialityController::class, 'editSpeciality']);
+Route::delete('speciality/{id}/delete', [SpecialityController::class, 'deleteSpeciality']);
 
 Route::get('students', [UserController::class, 'getAllStudents']);
 Route::post('login', [UserController::class, 'login']);

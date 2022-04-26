@@ -12,7 +12,11 @@ use App\Models\Speciality;
  */
 class SpecialityController extends Controller
 {
-    //
+    /**
+     * Create Speciality
+     * @bodyParam speciality.name string required
+     *
+    */
     function createSpeciality(Request $request)
     {
         $spec = new Speciality;
@@ -31,16 +35,25 @@ class SpecialityController extends Controller
         }
     }
 
+    /**
+     * Get a speciality by Id
+     */
     function getSpeciality($id)
     {
         return Speciality::where('id', $id)->get();
     }
 
+    /**
+     * Get the list of specialities
+     */
     function getAllSpecialities()
     {
         return Speciality::all();
     }
 
+    /**
+     * Delete a Speciality
+     */
     function deleteSpeciality($id)
     {
         $spec = Speciality::find($id);
@@ -59,6 +72,10 @@ class SpecialityController extends Controller
         }
     }
 
+    /**
+     * Edit / Update a speciality
+     * @queryParam entity.name required
+     */
     function editSpeciality(Request $request, $id)
     {
         $spec = Speciality::find($id);
@@ -76,7 +93,10 @@ class SpecialityController extends Controller
             );
         }
     }
-
+    /**
+     * Get a specialities list by entity
+     * @urlParam entity.id required
+     */
     function getSpecialitiesByEntity($id)
     {
         return Speciality::where('entity_id', $id)->get();
